@@ -8,20 +8,32 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "Computer Programming",
+    categoryName: "Indoor",
     description:
-      "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
+      "Indoor plants are plants that grow indoors. There are a variety of tropical plants, like palms, that thrive in indoor environments. Indoor plants are popular because they are relatively easy to take care of, provide health benefits and can be used in a variety of indoor décor themes.",
   },
   {
     _id: uuid(),
-    categoryName: "Frontend Development",
+    categoryName: "Low Maintenance",
     description:
-      "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
+      "Indoor plants are plants that grow indoors. There are a variety of tropical plants, like palms, that thrive in indoor environments. Indoor plants are popular because they are relatively easy to take care of, provide health benefits and can be used in a variety of indoor décor themes.",
   },
   {
     _id: uuid(),
-    categoryName: "Backend Development",
+    categoryName: "Air purifier",
     description:
-      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+      "Indoor plants are plants that grow indoors. There are a variety of tropical plants, like palms, that thrive in indoor environments. Indoor plants are popular because they are relatively easy to take care of, provide health benefits and can be used in a variety of indoor décor themes.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Succulent",
+    description:
+      "Indoor plants are plants that grow indoors. There are a variety of tropical plants, like palms, that thrive in indoor environments. Indoor plants are popular because they are relatively easy to take care of, provide health benefits and can be used in a variety of indoor décor themes.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Others",
+    description:
+      "Indoor plants are plants that grow indoors. There are a variety of tropical plants, like palms, that thrive in indoor environments. Indoor plants are popular because they are relatively easy to take care of, provide health benefits and can be used in a variety of indoor décor themes.",
   },
 ];
