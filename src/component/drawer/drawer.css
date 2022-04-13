@@ -1,0 +1,45 @@
+.side-navbar {
+  gap: 0.7rem;
+  max-width: 15rem;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 2;
+  overflow-y: auto;
+  background-color: var(--navbar-color);
+}
+.drawer-item {
+  cursor: pointer;
+  padding: 0.7rem 1.5rem;
+}
+.drawer-item:hover{
+  background-color: var(--drawer-item-hover);
+}
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.drawer-menu {
+  height: 100%;
+  overflow-y: auto;
+}
+.nav-lists {
+  gap: 0.3rem;
+}
+.nav-item {
+  cursor: pointer;
+}
+.active {
+  color: var(--primary-light-purple);
+}
+.side-navbar.drawer-show{
+  left: 0;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.43, 0.96);
+}
+@media screen and (max-width: 950px) {
+  .drawer-hide {
+    transform: translate(-100%, 0);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.43, 0.96);
+  }
+}

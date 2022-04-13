@@ -1,51 +1,30 @@
-.App {
-  text-align: center;
-}
+/* This root style be commented out from App.css. Here for a while  */
+:root {
+  --primary-color: #45523e;
+  --dark-primary-color: #323b2e;
+  --light-primary-color: #8ca67e;
+  --very-light-primary-color: #e8ffdb;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  --complimentary-text-color: #f5ece5;
+  --transparent-white: white;
+  --secondary-text-color: #696b79;
+  --dark-secondary-text-color: #3f4049;
+  --dark-secondary-text-color2: #26272c;
+  --secondary-color: #eaeaec;
+  --dark-secondary-color: #d8d8da;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
+.App{
+  background-color: var(--body-background-color);
+  color: var(--text-color);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+}
+.disable-body{
+  pointer-events: none;
+  opacity: 0.7;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+@media only screen and (max-width: 950px) {
+  .sidebar-toggler {
+      display: block;
+  }
 }
