@@ -1,13 +1,53 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Noto+Sans&family=Nunito:ital,wght@0,300;1,300&family=Playfair+Display:wght@700;800&family=Poppins:wght@200;300;400&family=Public+Sans:wght@200&display=swap');
+@import url('https://kube-ui.netlify.app/Components/kube-ui.css');
+*{
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Heebo', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.dark-theme{
+  --body-background-color: #181818;
+  --navbar-color: #282828;
+  --text-color: #ffffff;
+  --search-box-background-color: hsl(0, 0%, 7%);
+  --search-box-text-color: hsla(0, 100%, 100%, 0.88);
+  --search-box-border-color: hsl(0, 0%, 18.82%);
+  --drawer-item-hover: hsl(0, 0%, 20%);
+  --cateogry-pills-background-color: #333333;
+}
+.light-theme{
+  --body-background-color: #ffffff;
+  --navbar-color: #e8e8e8;
+  --text-color: #3e4152;
+  --search-box-background-color: #ffffff;
+  --search-box-text-color: #3f4049;
+  --search-box-border-color: hsl(0, 0%, 18.82%);
+  --drawer-item-hover: #d8d8d8;
+  --cateogry-pills-background-color: #333333;
+}
+
+body{
+  min-height: 100vh;
+}
+input {
+outline: none;
+}
+.no-link-style {
+text-decoration: none;
+cursor: pointer;
+border: none;
+background-color: transparent;
+color: inherit;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: inherit;
+  color: inherit
 }
