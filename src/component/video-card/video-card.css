@@ -1,0 +1,13 @@
+.card{
+  cursor: pointer;
+}
+.card-title-container {
+  justify-content: space-between;
+}
+.card__description {
+  color: var(--text-color-secondary);
+}
+.card__description p {
+  font-size: 0.87rem;
+}
+
