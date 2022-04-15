@@ -1,10 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import {Home} from 'pages';
+import { ProtectedRoute } from './ProtectedRoute';
+import { Home } from 'pages';
 
 const AppRoute = () => {
   return (
     <Routes>
-      <Route path="/" component={Home} />
+      <Route path="/" element={<Home />} />
+      <Route path="/" element={<ProtectedRoute />} />
     </Routes>
   );
 }
