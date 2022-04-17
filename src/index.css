@@ -11,28 +11,35 @@ html {
 }
 
 .dark-theme{
+  --background-color: rgba(33, 33, 33, 0.98);
   --body-background-color: #181818;
-  --navbar-color: #282828;
   --text-color: #ffffff;
+  --text-color-secondary: #AAAAAA;
   --search-box-background-color: hsl(0, 0%, 7%);
   --search-box-text-color: hsla(0, 100%, 100%, 0.88);
-  --search-box-border-color: hsl(0, 0%, 18.82%);
+  --border-color: hsl(0, 0%, 18.82%);
   --drawer-item-hover: hsl(0, 0%, 20%);
-  --cateogry-pills-background-color: #333333;
+  --cateogry-pills-background-color: rgba(255, 255, 255, 0.1);
+  --cateogry-pills-hover: rgba(255, 255, 255, 0.2);
 }
 .light-theme{
-  --body-background-color: #ffffff;
-  --navbar-color: #e8e8e8;
-  --text-color: #3e4152;
+  --background-color: #ffffff;
+  --body-background-color:  #f9f9f9;
+  --text-color: #030303;
+  --text-color-secondary: #606060;
   --search-box-background-color: #ffffff;
   --search-box-text-color: #3f4049;
-  --search-box-border-color: hsl(0, 0%, 18.82%);
-  --drawer-item-hover: #d8d8d8;
-  --cateogry-pills-background-color: #333333;
+  --border-color:  #ccc;
+  --drawer-item-hover: rgba(0, 0, 0, 0.05);
+  --cateogry-pills-background-color: rgba(0, 0, 0, 0.05);
+  --cateogry-pills-hover: rgba(0, 0, 0, 0.1);
 }
 
 body{
   min-height: 100vh;
+}
+p{
+  margin: 0.235rem 0;
 }
 input {
 outline: none;

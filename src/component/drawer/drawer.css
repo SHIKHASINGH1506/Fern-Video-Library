@@ -7,7 +7,7 @@
   left: 0;
   z-index: 2;
   overflow-y: auto;
-  background-color: var(--navbar-color);
+  background-color: var(--background-color);
 }
 .drawer-item {
   cursor: pointer;
