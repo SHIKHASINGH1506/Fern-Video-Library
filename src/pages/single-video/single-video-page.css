@@ -1,0 +1,30 @@
+.body-section-wrapper{
+  gap: 1rem;
+}
+.video-description{
+  border-bottom: 1px solid var(--border-color);
+}
+.video-title{
+  font-size: 18px;
+}
+.primary-info-text{
+  color: var(--text-color-secondary);
+}
+.primary-info-btn{
+  gap: 1rem;
+}
+.action-button{
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+.icon{
+  margin-right: 0.3rem;
+}
+@media only screen and (max-width: 950px) {
+  .play-section-wrapper{
+    margin-left: 0px;
+  }
+}

@@ -1,9 +1,12 @@
 import './video-card.css';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 
+import {useNavigate} from 'react-router-dom';
+
 const VideoCard = ({video}) => {
+  const navigate = useNavigate();
   return (
-    <div className="card" key={video._id}>
+    <div className="card" key={video._id} onClick={() => navigate(`/video/${video._id}`)}>
       <div className="img__container">
         <img src={`https://i.ytimg.com/vi/${video._id}/0.jpg`} className="responsive-img" />
       </div>
