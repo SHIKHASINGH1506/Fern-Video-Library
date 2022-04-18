@@ -25,7 +25,6 @@ const Home = () => {
     }, 700);
   }
   const sortedVideos = getFilteredSotredVideos(videos, categorizedBy, sortBy);
-  console.log(sortedVideos);
   return (
     <div className="body-section-wrapper d-flex flex-col">
       <div className="category-wrapper d-flex">
