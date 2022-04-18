@@ -1,3 +1,4 @@
 import { getAllVideos } from './video-service';
 import { getAllCategories } from './category-service';
-export { getAllVideos, getAllCategories };
+import { loginUser, signupUser } from './auth-service';
+export { getAllVideos, getAllCategories, loginUser, signupUser };
