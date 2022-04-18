@@ -1,11 +1,11 @@
-.body-section-wrapper{
+.single-video-wrapper{
   gap: 1rem;
 }
 .video-description{
   border-bottom: 1px solid var(--border-color);
 }
 .video-title{
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 .primary-info-text{
   color: var(--text-color-secondary);

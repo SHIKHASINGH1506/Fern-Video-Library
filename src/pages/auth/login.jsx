@@ -1,13 +1,14 @@
 import './auth.css';
 import { Link } from 'react-router-dom';
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useToast } from "custom-hook/useToast";
 import { loginUser } from 'service';
-import { useAuth } from 'context';
+import { useAuth, useData } from 'context';
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const initalLoginCreds = {
     email: '',
     password: ''
@@ -18,6 +19,7 @@ const Login = () => {
   };
   const [loginCreds, setLoginCreds] = useState(initalLoginCreds);
   const { setAuth } = useAuth();
+  const {setLoading} = useData();
   const { showToast } = useToast();
 
   const setLoginFields = (e) => {
@@ -39,12 +41,15 @@ const Login = () => {
           user: foundUser,
           isAuth: true
         }));
-        localStorage.setItem("token", JSON.stringify(encodedToken));
+        localStorage.setItem("token", (encodedToken));
         localStorage.setItem("user", JSON.stringify(foundUser));
         localStorage.setItem("isAuth", "true");
+        setLoginCreds(initalLoginCreds);
+        let from = location.state?.from || "/";
+        setLoading(true);
         setTimeout(() => {
-          setLoginCreds(initalLoginCreds);
-          navigate('/');
+          navigate(from, {replace: true});
+          setLoading(false);
         }, 1000)
       }
       else {
@@ -66,7 +71,6 @@ const Login = () => {
   return (
     <div className="login-wrapper body-section-wrapper">
       <div className="breadcrumb">
-
       </div>
       <div className="login-modal">
         <form className="login-form" onSubmit={(e) => loginFormHandler(e, loginCreds)}>
