@@ -20,7 +20,7 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     category: 'Others',
-    uploadedOn: "31 December 2020",
+    uploadedOn: "December 31 2020",
   },
   {
     _id: "6g4Pp1vOPtQ",
@@ -65,7 +65,7 @@ export const videos = [
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     category: 'Indoor',
-    uploadedOn: "01 December 2020",
+    uploadedOn: "December 01 2020",
   }, 
   {
     _id: "u2dfYYIoPwM",
