@@ -31,10 +31,16 @@ const Login = () => {
   const loginFormHandler = async (e, loginCreds) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const isLogin = await loginUser(loginCreds);
 
       if (isLogin) {
-        showToast('Login successful!', 'success');
+        let from = location.state?.from || "/";
+        setTimeout(() => {
+          navigate(from, {replace: true});
+          setLoading(false);
+        }, 1000);
+        // showToast('Login Successful', 'success');
         const { encodedToken, foundUser } = isLogin;
         setAuth(() => ({
           token: encodedToken,
@@ -45,12 +51,6 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(foundUser));
         localStorage.setItem("isAuth", "true");
         setLoginCreds(initalLoginCreds);
-        let from = location.state?.from || "/";
-        setLoading(true);
-        setTimeout(() => {
-          navigate(from, {replace: true});
-          setLoading(false);
-        }, 1000)
       }
       else {
         throw new Error("Failure! Login failed.");

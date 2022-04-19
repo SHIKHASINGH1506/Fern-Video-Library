@@ -6,7 +6,7 @@
 }
 .disable-body{
   pointer-events: none;
-  opacity: 0.7;
+  opacity: 0.3;
 }
 .body-section-wrapper{
   margin-left: 15rem;
