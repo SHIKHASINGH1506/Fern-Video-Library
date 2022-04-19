@@ -1,13 +1,30 @@
 .card{
   cursor: pointer;
+  position: relative;
 }
 .card-title-container {
   justify-content: space-between;
 }
-.card__description {
+.option-modal{
+  position: absolute;
+  right: 0.3rem;
+  width: 55%;
+  top: 90%;
+  height: 4.4rem;
+  background-color: var(--background-color);
+}
+.option{
+  font-size: 0.87rem;
+  padding: 0.3rem;
+  gap: 0.4rem;
+}
+.option:hover{
+  background-color: var(--drawer-item-hover);
+}
+.card__footer {
   color: var(--text-color-secondary);
 }
-.card__description p {
+.card__footer p {
   font-size: 0.87rem;
 }
 
