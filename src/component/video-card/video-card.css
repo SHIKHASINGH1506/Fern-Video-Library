@@ -8,7 +8,7 @@
 .option-modal{
   position: absolute;
   right: 0.3rem;
-  width: 55%;
+  width: max-content;
   top: 90%;
   height: 4.4rem;
   background-color: var(--background-color);
