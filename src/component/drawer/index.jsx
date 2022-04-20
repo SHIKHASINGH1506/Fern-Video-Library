@@ -32,9 +32,9 @@ const Drawer = () => {
             </Link>
           </li>
           <li className="drawer-item d-flex items-center">
-            <Link to="/trash" className="d-flex items-center">
+            <Link to="/watchlater" className="d-flex items-center">
               <WatchLaterOutlinedIcon className="mr-4 " />
-              watch Later
+              Watch Later
             </Link>
           </li>
           <li className="drawer-item d-flex items-center">
