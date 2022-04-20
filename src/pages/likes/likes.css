@@ -1,6 +1,9 @@
 .message-wrapper p {
   margin-top: 1rem;
 }
+.page-title{
+  margin-top: 1rem;
+}
 .message-wrapper {
   height: calc(100vh - 90px);
   gap: 1rem;
