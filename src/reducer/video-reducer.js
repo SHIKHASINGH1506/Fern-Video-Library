@@ -1,6 +1,7 @@
 const initialVideoState = {
   videos: [],
   categories: [],
+  likedVideos: [],
   categorizedBy: 'All',
   sortBy: false
 }
@@ -10,7 +11,8 @@ const videoReducer = (state, action) => {
       videos,
       categorizedBy,
       categories,
-      sortBy
+      sortBy,
+      likedVideos
     } } = action;
   switch (type) {
     case 'INIT_VIDEOS':
@@ -33,6 +35,11 @@ const videoReducer = (state, action) => {
       return{
         ...state,
         sortBy
+      }
+    case 'SET_LIKED_VIDEOS':
+      return {
+        ...state,
+        likedVideos
       }
   }
 

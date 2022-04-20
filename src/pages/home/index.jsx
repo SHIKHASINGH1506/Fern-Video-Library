@@ -3,7 +3,7 @@ import SortIcon from '@mui/icons-material/Sort';
 
 import { useData } from 'context';
 import { getFilteredSotredVideos } from 'utils/getFilteredSotredVideos';
-import { VideoCard } from 'component';
+import { VideoCard, Loader } from 'component';
 
 
 const Home = () => {
@@ -21,11 +21,10 @@ const Home = () => {
           }),
         }
       });
-      setLoading(false);
+     setLoading(false);
     }, 700);
   }
   const sortedVideos = getFilteredSotredVideos(videos, categorizedBy, sortBy);
-  console.log(sortedVideos);
   return (
     <div className="body-section-wrapper d-flex flex-col">
       <div className="category-wrapper d-flex">
@@ -49,16 +48,9 @@ const Home = () => {
             </>)}
       </div>
       <div className="video-list px-8">
-        {loading
-          ? "Loading..."
-          : (
-            <>
-              {sortedVideos.map(video => {
-                return <VideoCard video={video} key={video._id} />
-              })}
-            </>
-          )
-        }
+        {sortedVideos.map(video => {
+          return <VideoCard video={video} key={video._id} />
+        })}
       </div>
     </div>
   )

@@ -26,7 +26,7 @@ const Drawer = () => {
             </Link>
           </li>
           <li className="drawer-item d-flex items-center">
-            <Link to='/' className="d-flex items-center">
+            <Link to='/likedVideos' className="d-flex items-center">
               <FavoriteBorderOutlinedIcon className="mr-4 " />
               Liked
             </Link>
