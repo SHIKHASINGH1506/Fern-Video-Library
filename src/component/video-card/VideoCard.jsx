@@ -72,7 +72,7 @@ const VideoCard = ({video}) => {
         <MoreVertOutlinedIcon onClick={e => optionHandler(e)}/>
       </div>
      {optionModal && <div className="option-modal">
-        <div className="option d-flex items-center" onClick={e => watchLaterHandler(e)}>
+        <div className= {`option ${isVideoInWatchLater() ? 'text-danger' : ''} d-flex items-center`} onClick={e => watchLaterHandler(e)}>
           {watchLaterIcon}
           {isVideoInWatchLater() ? 'Remove from Watch Later' : 'Add to Watch Later'}
         </div>
