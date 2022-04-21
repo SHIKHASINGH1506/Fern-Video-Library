@@ -14,6 +14,12 @@ const addVideoToHistory = (video) => {
 const removeVideoFromHistory = (id) => {
   const token = localStorage.getItem('token');
   const headers = {authorization: token};
-  return axios.delete(`/api/user/history//${id}`, {headers: headers});
+  return axios.delete(`/api/user/history/${id}`, {headers: headers});
 }
-export { getHistoryVideos, addVideoToHistory, removeVideoFromHistory };
+
+const removeAllVideoFromHistory = () => {
+  const token = localStorage.getItem('token');
+  const headers = {authorization: token};
+  return axios.delete(`/api/user/history/all`, {headers: headers});
+}
+export { getHistoryVideos, addVideoToHistory, removeVideoFromHistory, removeAllVideoFromHistory };
