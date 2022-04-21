@@ -4,15 +4,16 @@ import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import PlayCircleOutlineOutlinedIcon from '@mui/icons-material/PlayCircleOutlineOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
-import { addItemToWatchLater, removeItemFromWatchLater, addVideoToHistory } from 'service';
+import { addItemToWatchLater, removeItemFromWatchLater, addVideoToHistory, removeVideoFromHistory } from 'service';
 import { useData, useAuth } from 'context';
 import { useToast } from 'custom-hook/useToast';
 
 const VideoCard = ({ video }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { videoDispatch, videoState: { watchlater, history } } = useData();
   const { auth: { isAuth } } = useAuth();
   const { showToast } = useToast();
@@ -25,7 +26,7 @@ const VideoCard = ({ video }) => {
   const isVideoInHistory = () => history.find(item => item._id === video._id) ? true : false;
   const watchLaterIcon = isVideoInWatchLater() ? <DeleteOutlineOutlinedIcon style={{ fontSize: "1rem" }} /> : <WatchLaterOutlinedIcon style={{ fontSize: "1rem" }} />;
 
-  const addToWatchLater = async (video) => {
+  const addToWatchLater = async video => {
     try {
       const { data: { watchlater } } = await addItemToWatchLater(video);
       videoDispatch({
@@ -41,7 +42,7 @@ const VideoCard = ({ video }) => {
     }
   }
 
-  const removeFromWatchLater = async (id) => {
+  const removeFromWatchLater = async id => {
     try {
       const { data: { watchlater } } = await removeItemFromWatchLater(id);
       videoDispatch({
@@ -57,7 +58,7 @@ const VideoCard = ({ video }) => {
     }
   }
 
-  const watchLaterHandler = (e) => {
+  const watchLaterHandler = e => {
     e.stopPropagation();
     isAuth
       ? isVideoInWatchLater() ? removeFromWatchLater(video._id) : addToWatchLater({ video: video })
@@ -71,9 +72,22 @@ const VideoCard = ({ video }) => {
         type: 'SET_HISTORY',
         payload: { history: history }
       });
-      showToast('Video added to history', 'success');
     } catch (error) {
-      showToast('Could not add to history!', 'error');
+      console.log(error.response.data);
+    }
+  }
+
+  const removeFromHistoryHandler = async (e, id) => {
+    e.stopPropagation();
+    try {
+      const { data: { history } } = await removeVideoFromHistory(id);
+      videoDispatch({
+        type: 'SET_HISTORY',
+        payload: { history: history }
+      });
+      showToast('Video removed from history', 'success');
+    } catch (error) {
+      showToast('Could not remove from history!', 'error');
       console.log(error.response.data);
     }
   }
@@ -102,6 +116,11 @@ const VideoCard = ({ video }) => {
           <PlayCircleOutlineOutlinedIcon style={{ fontSize: "1rem" }} />
           Add to Playlist
         </div>
+       {location.pathname==='/history' && 
+        <div className="option d-flex items-center text-danger" onClick={(e) => removeFromHistoryHandler(e, video._id)}>
+          <DeleteOutlineOutlinedIcon style={{ fontSize: "1rem" }} />
+          Remove from History
+        </div>}
       </div>}
       <div className="card__footer d-flex items-center justify-between">
         <p>{video.creator}</p>
