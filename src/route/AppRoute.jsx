@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from './ProtectedRoute';
-import { Home, Login, Signup, SingleVideo, LikedVideos, WatchLater } from 'pages';
+import { Home, Login, Signup, SingleVideo, LikedVideos, WatchLater, History } from 'pages';
 
 const AppRoute = () => {
   return (
@@ -13,6 +13,7 @@ const AppRoute = () => {
       <Route path="/" element={<ProtectedRoute />}>
         <Route path="/likedVideos" element={<LikedVideos />} />
         <Route path="/watchlater" element={<WatchLater />} />
+        <Route path="/history" element={<History />} />
       </Route>
     </Routes>
   );
