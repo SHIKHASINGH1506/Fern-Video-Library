@@ -7,10 +7,11 @@
 }
 .option-modal{
   position: absolute;
+  z-index: 5;
   right: 0.3rem;
   width: max-content;
   top: 90%;
-  height: 4.4rem;
+  height: max-content;
   background-color: var(--background-color);
 }
 .option{
