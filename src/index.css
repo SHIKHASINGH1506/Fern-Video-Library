@@ -11,6 +11,7 @@ html {
 }
 :root {
   --primary-color: #96A88C;
+  --danger-color: #e85858;
 }
 .dark-theme{
   --background-color: rgba(33, 33, 33, 0.98);

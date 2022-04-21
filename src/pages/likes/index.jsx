@@ -8,7 +8,7 @@ const LikedVideos = () => {
   const {videoState:{likedVideos}, drawer} = useData();
   return(
     <div className={`body-section-wrapper ${drawer ? 'disable-body' : ''} d-flex flex-col`}>
-      <p className="px-8">Liked Videos {likedVideos?.length}</p>
+      <p className="page-title px-8">Liked Videos {likedVideos?.length}</p>
       {likedVideos.length>0 ?
       <div className="video-list title px-8">
         {likedVideos.map(video => {

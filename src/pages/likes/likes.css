@@ -1,4 +1,7 @@
-.body-section-wrapper p {
+.message-wrapper p {
+  margin-top: 1rem;
+}
+.page-title{
   margin-top: 1rem;
 }
 .message-wrapper {
