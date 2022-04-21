@@ -38,7 +38,7 @@ const Drawer = () => {
             </Link>
           </li>
           <li className="drawer-item d-flex items-center">
-            <Link to='' className="d-flex items-center">
+            <Link to='/history' className="d-flex items-center">
               <HistoryOutlinedIcon className="mr-4" />
               History
             </Link>
