@@ -8,3 +8,6 @@
   height: calc(100vh - 90px);
   gap: 1rem;
 }
+.bttn-danger{
+  background-color: var(--danger-color);
+}
