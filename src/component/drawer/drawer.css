@@ -10,8 +10,10 @@
   background-color: var(--background-color);
 }
 .drawer-item {
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  padding: 0.7rem 1.5rem;
+  padding: 0.9rem 1.5rem;
 }
 .drawer-item:hover{
   background-color: var(--drawer-item-hover);
@@ -23,6 +25,9 @@
 .drawer-menu {
   height: 100%;
   overflow-y: auto;
+}
+.drawer-item-active{
+  background-color: var(--drawer-item-hover);
 }
 .nav-lists {
   gap: 0.3rem;
