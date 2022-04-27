@@ -18,5 +18,7 @@ export {
 } from './history-service';
 export {
     getAllPlaylists,
-    addNewPlaylist
+    addNewPlaylist,
+    addVideoToPlaylist,
+    removeVideoFromPlaylist
 } from './playlist-service';

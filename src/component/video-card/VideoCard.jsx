@@ -7,6 +7,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
+import { PlaylistModal } from 'component';
 import { addItemToWatchLater, removeItemFromWatchLater, addVideoToHistory, removeVideoFromHistory } from 'service';
 import { useData, useAuth } from 'context';
 import { useToast } from 'custom-hook/useToast';
@@ -14,10 +15,17 @@ import { useToast } from 'custom-hook/useToast';
 const VideoCard = ({ video }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { videoDispatch, videoState: { watchlater, history } } = useData();
+  const {
+    videoDispatch, 
+    videoState: { 
+      watchlater, 
+      history } 
+  } = useData();
   const { auth: { isAuth } } = useAuth();
   const { showToast } = useToast();
   const [optionModal, setOptionalModal] = useState(false);
+  const [playlistModalFocus, setPlaylistModalFocus] = useState(false); 
+
   const optionHandler = e => {
     e.stopPropagation();
     setOptionalModal(prevModalState => !prevModalState);
@@ -98,13 +106,23 @@ const VideoCard = ({ video }) => {
       addToHistory({ video: video })
   }
 
+  const addToPlaylistHandler = e => {
+    e.stopPropagation(); 
+    setPlaylistModalFocus(true);
+    setOptionalModal(false);
+  }
+
+  const closePlaylistModal = () => {
+    setPlaylistModalFocus(false);
+  }
+
   return (
-    <div className="card" key={video._id} onClick={() => videoClickHandler()}>
-      <div className="img__container">
+    <div className="card" key={video._id} >
+      <div className="img__container" onClick={() => videoClickHandler()}>
         <img src={`https://i.ytimg.com/vi/${video._id}/0.jpg`} className="responsive-img" />
       </div>
       <div className="card__body d-flex items-center justify-between">
-        <p className="card__title">{video.title}</p>
+        <p className="card__title" onClick={() => videoClickHandler()}>{video.title}</p>
         <MoreVertOutlinedIcon onClick={e => optionHandler(e)} />
       </div>
       {optionModal && <div className="option-modal">
@@ -112,7 +130,10 @@ const VideoCard = ({ video }) => {
           {watchLaterIcon}
           {isVideoInWatchLater() ? 'Remove from Watch Later' : 'Add to Watch Later'}
         </div>
-        <div className="option d-flex items-center">
+        <div 
+          className="option d-flex items-center"
+          onClick={e => addToPlaylistHandler(e)} 
+        >
           <PlayCircleOutlineOutlinedIcon style={{ fontSize: "1rem" }} />
           Add to Playlist
         </div>
@@ -126,6 +147,7 @@ const VideoCard = ({ video }) => {
         <p>{video.creator}</p>
         <p>{video.uploadedOn}</p>
       </div>
+      {playlistModalFocus && <PlaylistModal closePlaylistModal={closePlaylistModal} video={video}/>}
     </div>
   )
 }

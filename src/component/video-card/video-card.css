@@ -7,7 +7,7 @@
 }
 .option-modal{
   position: absolute;
-  z-index: 5;
+  z-index: 3;
   right: 0.3rem;
   width: max-content;
   top: 90%;
@@ -31,4 +31,3 @@
 .card__footer p {
   font-size: 0.87rem;
 }
-

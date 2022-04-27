@@ -11,4 +11,16 @@ const addNewPlaylist = (playlist) => {
   return axios.post('/api/user/playlists', playlist, {headers: headers});
 }
 
-export { getAllPlaylists, addNewPlaylist };
+const addVideoToPlaylist = (playlistId, video) => {
+  const token = localStorage.getItem('token');
+  const headers = {authorization: token};
+  return axios.post(`/api/user/playlists/${playlistId}`, video, {headers: headers});
+}
+
+const removeVideoFromPlaylist = (playlistId, videoId) => {
+  const token = localStorage.getItem('token');
+  const headers = {authorization: token};
+  return axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {headers: headers});
+}
+
+export { getAllPlaylists, addNewPlaylist, addVideoToPlaylist, removeVideoFromPlaylist };
