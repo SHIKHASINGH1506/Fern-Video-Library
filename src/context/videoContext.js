@@ -14,9 +14,7 @@ const DataProvider = ({children}) => {
   useEffect(() => {
     (async () => {
       try{
-     // setLoading(true);
       const {data:{videos}} = await getAllVideos();
-      //setLoading(false);
       videoDispatch({type:'INIT_VIDEOS', payload:{videos: videos}});
       }catch(error){
         console.log(error.response.data);
