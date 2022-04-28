@@ -7,13 +7,15 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useData, useTheme, useAuth } from 'context';
 
 
 const Navbar = () => {
-  const {setDrawer, videoDispatch} = useData();
+  const {setDrawer, searchKey, setSearchKey} = useData();
   const location = useLocation();
   const navigate = useNavigate();
   const {theme, setTheme} = useTheme();
@@ -63,8 +65,11 @@ const Navbar = () => {
               className="search-input"
               type="text"
               id="product"
+              value={searchKey}
+              onChange={(e) => setSearchKey(e.target.value)}
               placeholder="Search videos here"
             />
+            <CloseIcon onClick={() => setSearchKey('')}/>
           </div>
         </div>
         <ul className="right-aligned d-flex items-center ">

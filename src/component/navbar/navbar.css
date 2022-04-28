@@ -60,6 +60,7 @@
     color: var(--text-color);
 }
 .search-input{
+    width: 100%;
     background-color: var(--search-box-background-color); 
     border: none;
     color: var(--text-color);

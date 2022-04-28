@@ -8,13 +8,16 @@ const useData = () => useContext(DataContext);
 const DataProvider = ({children}) => {
   const [drawer, setDrawer] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [searchKey, setSearchKey]  = useState('');
   const [videoState, videoDispatch] = useReducer(videoReducer, initialVideoState);
 
   //get all videos
   useEffect(() => {
     (async () => {
       try{
+      setLoading(true);
       const {data:{videos}} = await getAllVideos();
+      setLoading(false);
       videoDispatch({type:'INIT_VIDEOS', payload:{videos: videos}});
       }catch(error){
         console.log(error.response.data);
@@ -39,7 +42,7 @@ const DataProvider = ({children}) => {
     })();
   }, []);
   return (
-    <DataContext.Provider value={{drawer, setDrawer, loading, setLoading, videoState, videoDispatch}}>
+    <DataContext.Provider value={{drawer, setDrawer, loading, setLoading, videoState, videoDispatch, searchKey, setSearchKey}}>
       {children}
     </DataContext.Provider>
   );

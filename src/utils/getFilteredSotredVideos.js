@@ -1,7 +1,14 @@
-const getFilteredSotredVideos = (videos, categorizedBy, sortBy) => {
-  const filteredVideos = getFilteredVideos(videos, categorizedBy);
+const getFilteredSotredVideos = (videos, searchKey, categorizedBy, sortBy) => {
+  const foundBysearchVideos = getSeachedVideos(videos, searchKey);
+  const filteredVideos = getFilteredVideos(foundBysearchVideos, categorizedBy);
   const sortedVideos = getSortedVideos(filteredVideos, sortBy);
   return sortedVideos;
+}
+
+const getSeachedVideos = (videos, searchKey) => {
+  if(searchKey==='')
+    return videos;
+  return videos.filter(video => video.title.toLowerCase().includes(searchKey.toLowerCase()));
 }
 const getFilteredVideos = (videos, categorizedBy) => {
   if(categorizedBy === 'All'){
