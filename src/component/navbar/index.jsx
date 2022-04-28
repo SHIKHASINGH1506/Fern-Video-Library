@@ -8,19 +8,36 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
-import { Link } from 'react-router-dom';
-import { useData, useTheme } from 'context';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useData, useTheme, useAuth } from 'context';
 
 
 const Navbar = () => {
-  const {setDrawer} = useData();
+  const {setDrawer, videoDispatch} = useData();
+  const location = useLocation();
+  const navigate = useNavigate();
   const {theme, setTheme} = useTheme();
   const themeIcon = theme ==='dark' ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />;
-  const isAuth = false;
+  const {auth:{isAuth}, setAuth} = useAuth();
+
+  console.log(isAuth);
 
   const themeHandler = () => {
     theme === 'dark' ? setTheme('light') : setTheme('dark');
   }
+
+  const logoutHandler = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('isAuth');
+    setAuth({
+      token: null,
+      user: null,
+      isAuth: false
+    })
+    navigate('/login', {state: {from: location.pathname}, replace: true});
+  }
+
   return (
     <header className="navbar-home">
       <nav className="navbar-wrapper d-flex justify-between items-center">
@@ -58,9 +75,9 @@ const Navbar = () => {
           <li className="nav-item icon">
             <AccountCircleOutlinedIcon />
           </li>
-          <li className="nav-item icon">
+          {isAuth && <li className="nav-item icon" onClick={() => logoutHandler()}>
             <LogoutIcon />
-          </li>
+          </li>}
         </ul>
       </nav>
     </header>

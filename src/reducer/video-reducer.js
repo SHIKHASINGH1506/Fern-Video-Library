@@ -62,6 +62,10 @@ const videoReducer = (state, action) => {
         ...state,
         playlists
       };
+    // case 'LOGOUT':
+    //   return {
+    //     ...state
+    //   }
   }
 
 
