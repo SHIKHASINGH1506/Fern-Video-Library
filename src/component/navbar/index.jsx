@@ -22,8 +22,6 @@ const Navbar = () => {
   const themeIcon = theme ==='dark' ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />;
   const {auth:{isAuth}, setAuth} = useAuth();
 
-  console.log(isAuth);
-
   const themeHandler = () => {
     theme === 'dark' ? setTheme('light') : setTheme('dark');
   }

@@ -11,7 +11,6 @@ import { useToast } from 'custom-hook/useToast';
 
 const PlaylistModal = ({closePlaylistModal, video}) => {
   const location = useLocation();
-  console.log(location.pathname);
   const { showToast } = useToast();
   const [playlistName, setPlaylistName] = useState('');
   const {
