@@ -9,17 +9,22 @@ import { useState } from 'react';
 
 import { PlaylistModal } from 'component';
 import { addItemToWatchLater, removeItemFromWatchLater, addVideoToHistory, removeVideoFromHistory } from 'service';
+import { removeVideoFromPlaylistHandler } from 'utils/playlistUtil';
 import { useData, useAuth } from 'context';
 import { useToast } from 'custom-hook/useToast';
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ video, playlistId }) => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const isPlaylistCard = location.pathname.includes('playlist');
   const {
     videoDispatch, 
     videoState: { 
       watchlater, 
-      history } 
+      history,
+      playlists
+     } 
   } = useData();
   const { auth: { isAuth } } = useAuth();
   const { showToast } = useToast();
@@ -116,6 +121,10 @@ const VideoCard = ({ video }) => {
     setPlaylistModalFocus(false);
   }
 
+  const removeFromPlaylistHandler = () => {
+    removeVideoFromPlaylistHandler(playlistId, playlists, video._id, videoDispatch, showToast);
+  } 
+
   return (
     <div className="card" key={video._id} >
       <div className="img__container" onClick={() => videoClickHandler()}>
@@ -126,21 +135,27 @@ const VideoCard = ({ video }) => {
         <MoreVertOutlinedIcon onClick={e => optionHandler(e)} />
       </div>
       {optionModal && <div className="option-modal">
-        <div className={`option ${isVideoInWatchLater() ? 'text-danger' : ''} d-flex items-center`} onClick={e => watchLaterHandler(e)}>
+        {!isPlaylistCard && <div className={`option ${isVideoInWatchLater() ? 'text-danger' : ''} d-flex items-center`} 
+          onClick={e => watchLaterHandler(e)}>
           {watchLaterIcon}
           {isVideoInWatchLater() ? 'Remove from Watch Later' : 'Add to Watch Later'}
-        </div>
-        <div 
+        </div>}
+        {!isPlaylistCard && <div 
           className="option d-flex items-center"
           onClick={e => addToPlaylistHandler(e)} 
         >
           <PlayCircleOutlineOutlinedIcon style={{ fontSize: "1rem" }} />
           Add to Playlist
-        </div>
+        </div>}
        {location.pathname==='/history' && 
         <div className="option d-flex items-center text-danger" onClick={(e) => removeFromHistoryHandler(e, video._id)}>
           <DeleteOutlineOutlinedIcon style={{ fontSize: "1rem" }} />
           Remove from History
+        </div>}
+        {isPlaylistCard && <div className="option d-flex items-center text-danger"
+          onClick={e => removeFromPlaylistHandler(e)}>
+          <DeleteOutlineOutlinedIcon style={{ fontSize: "1rem" }}/>
+          Remove from Playlist
         </div>}
       </div>}
       <div className="card__footer d-flex items-center justify-between">
