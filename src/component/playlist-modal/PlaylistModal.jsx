@@ -2,13 +2,16 @@ import './playlist.css';
 import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 
-import { useState } from 'react';
-import { addNewPlaylist, addVideoToPlaylist, removeVideoFromPlaylist } from 'service';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { addNewPlaylist, addVideoToPlaylist } from 'service';
+import { removeVideoFromPlaylistHandler } from 'utils/playlistUtil';
 import { useData } from 'context';
 import { useToast } from 'custom-hook/useToast';
-import { useEffect } from 'react';
 
 const PlaylistModal = ({closePlaylistModal, video}) => {
+  const location = useLocation();
+  console.log(location.pathname);
   const { showToast } = useToast();
   const [playlistName, setPlaylistName] = useState('');
   const {
@@ -70,21 +73,6 @@ const PlaylistModal = ({closePlaylistModal, video}) => {
     }
   }
 
-  const removeVideoFromPlaylistHandler = async playlistId => {
-    try{
-      const { data: { playlist }} = await removeVideoFromPlaylist(playlistId, video._id);
-      videoDispatch({
-        type: 'SET_PLAYLISTS',
-        payload: {
-          playlists: playlists.map( item => item._id === playlistId ? playlist : item)
-        }
-      });
-      showToast('Video removed from playlist successfully!', 'success');
-    }catch(error){
-      console.log(error);
-    }
-  }
-
   const videoToPlaylistHandler = playlistId => {
     setPlaylistEditor(prevPlaylist => prevPlaylist.map( playlist => 
       playlist._id === playlistId 
@@ -93,20 +81,20 @@ const PlaylistModal = ({closePlaylistModal, video}) => {
     ));
 
     isVideoInPlaylist(playlistId)
-      ? removeVideoFromPlaylistHandler(playlistId)
+      ? removeVideoFromPlaylistHandler(playlistId, playlists, video._id, videoDispatch, showToast)
       : addVideoToPlaylistHandler(playlistId)  
     }
 
   return (
     <div className="playlist-overlay d-flex justify-center items-center">
-      <div className="playlist-wrapper d-flex flex-col">
+      <div className="playlist-modal-wrapper d-flex flex-col">
         <div className="playlist-title d-flex justify-between items-center">
           <p>Add Playlist</p>
           <button 
             className="transparent-btn text-color"
             onClick={() => closePlaylistModal()}><CloseIcon style={{ fontSize: "1.2rem" }}/></button>
         </div>
-        {playlists.length > 0 && 
+        {playlists.length > 0 && location.pathname!=='/playlist' &&
           <div className="playlist-list d-flex flex-col">
             {playlists.map(({title, _id}) => (
               <label key={_id} className="text-sm" htmlFor={title}>
