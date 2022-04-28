@@ -23,4 +23,10 @@ const removeVideoFromPlaylist = (playlistId, videoId) => {
   return axios.delete(`/api/user/playlists/${playlistId}/${videoId}`, {headers: headers});
 }
 
-export { getAllPlaylists, addNewPlaylist, addVideoToPlaylist, removeVideoFromPlaylist };
+const removePlaylist = (playlistId) => {
+  const token = localStorage.getItem('token');
+  const headers = {authorization: token};
+  return axios.delete(`/api/user/playlists/${playlistId}`, {headers: headers});
+}
+
+export { getAllPlaylists, addNewPlaylist, addVideoToPlaylist, removeVideoFromPlaylist, removePlaylist };

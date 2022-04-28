@@ -20,5 +20,6 @@ export {
     getAllPlaylists,
     addNewPlaylist,
     addVideoToPlaylist,
-    removeVideoFromPlaylist
+    removeVideoFromPlaylist,
+    removePlaylist
 } from './playlist-service';

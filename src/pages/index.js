@@ -5,3 +5,5 @@ export { SingleVideo } from './single-video';
 export { LikedVideos } from './likes';
 export { WatchLater } from './watch-later';
 export { History } from './history';
+export { Playlist } from './playlist';
+export { PlaylistItems } from './playlist/PlaylistItems';
