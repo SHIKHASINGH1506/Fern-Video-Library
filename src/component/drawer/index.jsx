@@ -24,7 +24,7 @@ const Drawer = () => {
           </li>
           <li>
             <NavLink 
-              to='/' 
+              to='/playlist' 
               className={ ({isActive}) => isActive ? 'drawer-item drawer-item-active' : 'drawer-item'}
             >
               <PlayCircleOutlineOutlinedIcon className="mr-4 " />
