@@ -113,8 +113,12 @@ const VideoCard = ({ video, playlistId }) => {
 
   const addToPlaylistHandler = e => {
     e.stopPropagation(); 
+    if(isAuth) {
     setPlaylistModalFocus(true);
     setOptionalModal(false);
+    } else{
+      navigate('/login', { replace: true, state: { from: location.pathname } });
+    }
   }
 
   const closePlaylistModal = () => {
