@@ -132,7 +132,7 @@ const VideoCard = ({ video, playlistId }) => {
   return (
     <div className="card" key={video._id} >
       <div className="img__container" onClick={() => videoClickHandler()}>
-        <img src={`https://i.ytimg.com/vi/${video._id}/0.jpg`} className="responsive-img" />
+        <img src={`https://i.ytimg.com/vi/${video._id}/maxresdefault.jpg`} className="responsive-img" />
       </div>
       <div className="card__body d-flex items-center justify-between">
         <p className="card__title" onClick={() => videoClickHandler()}>{video.title}</p>

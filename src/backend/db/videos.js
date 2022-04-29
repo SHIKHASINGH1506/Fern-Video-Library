@@ -32,13 +32,22 @@ export const videos = [
     uploadedOn: "October 25 2018",
   },
   {
-    _id: "W46BMrAeMm4",
-    title: "Planting Your Succulent",
-    creator: "World Class Flowers",
+    _id: "-HVEWnzh25E",
+    title: "How and When To Repot Your Succulents",
+    creator: "Succulents Box",
     description:
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     category: 'Succulents',
-    uploadedOn: "September 15 2021",
+    uploadedOn: "March 10 2021",
+  },
+  {
+    _id: "Jh5oX0VRnzk",
+    title: "Plant propagation for beginners",
+    creator: "Pick Up Limes",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    category: 'Indoor',
+    uploadedOn: "April 10 2020",
   },
   {
     _id: "A4CmvmV_eHA",
@@ -111,5 +120,25 @@ export const videos = [
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     category: 'Others',
     uploadedOn: "September 04 2020",
-  }
+  },
+  {
+    _id: "kBrMR2m5G0o",
+    title: "5 Tall & Beautiful Indoor Plants",
+    creator: "Garden Up",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    category: 'Indoor',
+    uploadedOn: "September 11 2020",
+  },
+  {
+    _id: "mZiNPElrsBA",
+    title: "Fiddle Leaf Fig Almost Complete Care",
+    creator: "Planterina",
+    description:
+      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    category: 'Others',
+    uploadedOn: "March 30 2019",
+  },
+  
+  
 ];

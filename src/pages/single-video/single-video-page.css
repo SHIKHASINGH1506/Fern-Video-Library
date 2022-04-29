@@ -7,6 +7,10 @@
 .video-title{
   font-size: 1.125rem;
 }
+.primary-info{
+  flex-direction: column;
+  gap: 10px;
+}
 .primary-info-text{
   color: var(--text-color-secondary);
 }
@@ -26,5 +30,12 @@
 @media only screen and (max-width: 950px) {
   .play-section-wrapper{
     margin-left: 0px;
+  }
+}
+@media only screen and (min-width: 540px) {
+  .primary-info{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
