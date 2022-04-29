@@ -1,0 +1,28 @@
+.playlist-wrapper{
+  position: relative;
+  background: var(--primary-color);
+  height: 11.2rem;
+  max-height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.playlist-card-overlay{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.262);
+  width: 30%;
+  height:100%;
+}
+.playlist-body{
+  height: 9rem;
+  font-size: 1.2rem;
+  padding-left: 7px;
+  padding-bottom: 7px;
+  align-items: flex-end;
+}
+.playlist-footer{
+  height: 2.4rem;
+  box-shadow: 0 -2px 5px -1px var(--border-color);
+}

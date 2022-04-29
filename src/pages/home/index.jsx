@@ -7,7 +7,17 @@ import { VideoCard, Loader } from 'component';
 
 
 const Home = () => {
-  const { loading, setLoading, videoState: { videos, categories, categorizedBy, sortBy }, videoDispatch } = useData();
+  const {
+    setLoading,
+    searchKey,
+    videoState: {
+      videos,
+      categories,
+      categorizedBy,
+      sortBy
+    },
+    videoDispatch
+  } = useData();
 
   const pickCategoryHandler = (id, categoryName) => {
     setLoading(true);
@@ -21,10 +31,10 @@ const Home = () => {
           }),
         }
       });
-     setLoading(false);
+      setLoading(false);
     }, 700);
   }
-  const sortedVideos = getFilteredSotredVideos(videos, categorizedBy, sortBy);
+  const sortedVideos = getFilteredSotredVideos(videos, searchKey, categorizedBy, sortBy);
   return (
     <div className="body-section-wrapper d-flex flex-col">
       <div className="category-wrapper d-flex">
@@ -47,11 +57,15 @@ const Home = () => {
               <span>Sort by Latest</span>
             </>)}
       </div>
-      <div className="video-list px-8">
+      {sortedVideos.length > 0 ? <div className="video-list px-8">
         {sortedVideos.map(video => {
           return <VideoCard video={video} key={video._id} />
         })}
       </div>
+        : <div className="message-wrapper d-flex flex-col justify-center items-center">
+          <p>No videos found :(</p>
+        </div>}
+
     </div>
   )
 }

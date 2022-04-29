@@ -72,7 +72,7 @@ const SingleVideo = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       <div className="video-description">
         <p className="video-title">{video.title}</p>
-        <div className="primary-info d-flex justify-between items-center">
+        <div className="primary-info d-flex">
           <div className="primary-info-text d-flex">
             <p className="text-sm">{video.creator}</p>
             <p className="text-sm">{video.uploadedOn}</p>

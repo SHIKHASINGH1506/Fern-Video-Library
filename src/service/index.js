@@ -16,3 +16,10 @@ export {
     removeVideoFromHistory, 
     removeAllVideoFromHistory 
 } from './history-service';
+export {
+    getAllPlaylists,
+    addNewPlaylist,
+    addVideoToPlaylist,
+    removeVideoFromPlaylist,
+    removePlaylist
+} from './playlist-service';

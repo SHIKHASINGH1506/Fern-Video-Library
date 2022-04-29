@@ -1,17 +1,16 @@
-
-.App{
+.App {
   background-color: var(--body-background-color);
   color: var(--text-color);
   min-height: 100vh;
 }
-.disable-body{
+.disable-body {
   pointer-events: none;
   opacity: 0.3;
 }
-.body-section-wrapper{
+.body-section-wrapper {
   margin-left: 15rem;
 }
-.video-list{
+.video-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2.5rem 2rem;
@@ -19,6 +18,11 @@
 }
 @media only screen and (max-width: 950px) {
   .sidebar-toggler {
-      display: block;
+    display: block;
+  }
+}
+@media only screen and (max-width: 540px) {
+  * {
+    font-size: 12px;
   }
 }

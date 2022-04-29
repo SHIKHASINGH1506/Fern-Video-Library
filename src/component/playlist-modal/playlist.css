@@ -1,0 +1,41 @@
+.playlist-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,.562);
+}
+.playlist-modal-wrapper{
+  width: 300px;
+  max-width: 100%;
+  padding: 8px 11px;
+  gap: 7px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+}
+.playlist-form-wrapper{
+  display: flex;
+  border: 1px solid var(--border-color);
+}
+.input-field{
+  width: 100%;
+  padding: 8px 5px;
+  border: none;
+  background-color: var(--search-box-background-color);
+  color: var(--text-color);
+}
+
+.dark-background-btn{
+  background-color: var(--search-box-background-color);
+}
+.text-color{
+  color: var(--text-color);
+}
+.checkbox-input{
+  accent-color: var(--primary-color);
+  margin-right: 7px;
+}
