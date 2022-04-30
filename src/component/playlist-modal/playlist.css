@@ -21,6 +21,9 @@
   display: flex;
   border: 1px solid var(--border-color);
 }
+.playlist-form-wrapper:focus{
+  border-color: var(--primary-color);
+}
 .input-field{
   width: 100%;
   padding: 8px 5px;

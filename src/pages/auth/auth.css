@@ -34,6 +34,9 @@
   margin: 0;
   color: var(--text-color);
 }
+.primary-text{
+  color: var(--primary-color);
+}
 .input-section:focus {
   border-color: var(--primary-color);
 }

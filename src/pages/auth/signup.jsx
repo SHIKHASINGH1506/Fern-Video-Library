@@ -68,7 +68,7 @@ const Signup = () => {
               id="fullName"
               name="fullName"
               value={signupFields.fullName}
-              placeholder="Full Name"
+              placeholder="John Doe"
               onChange={(e) => fieldChangeHandler(e)}
             />
           </div>
@@ -80,7 +80,7 @@ const Signup = () => {
               id="email"
               name="email"
               value={signupFields.email}
-              placeholder="Email"
+              placeholder="johndoe@gmail.com"
               onChange={(e) => fieldChangeHandler(e)}
             />
           </div>
@@ -111,13 +111,13 @@ const Signup = () => {
             />
           </div>
           <label className="input-label text-sm" htmlFor="pwd-store">
-            <input type="checkbox" name="" id="pwd-store" />
+            <input type="checkbox" className="checkbox-input" name="" id="pwd-store" />
             I accept all the terms and conditions
           </label>
 
           <button className="bttn bttn-primary bttn-block">CREATE ACCOUNT</button>
-          <p className="sub-text text-sm text-center">Already have an account?
-            <Link className="text-sm bold link-text-primary" to='/login'>Login</Link>
+          <p className="sub-text text-center">Already have an account?
+            <Link className="bold primary-text" to='/login'> Login</Link>
           </p>
         </form>
       </div>

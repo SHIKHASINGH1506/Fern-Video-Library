@@ -34,15 +34,16 @@ const Home = () => {
       setLoading(false);
     }, 700);
   }
+  console.log(categories);
   const sortedVideos = getFilteredSotredVideos(videos, searchKey, categorizedBy, sortBy);
   return (
     <div className="body-section-wrapper d-flex flex-col">
       <div className="category-wrapper d-flex">
-        {categories.map(({ categoryName, _id }) => {
+        {categories.map(({ categoryName, _id, selected }) => {
           return (
             <span
               key={_id}
-              className="badge category-badge rounded-pill"
+              className={`badge category-badge rounded-pill ${selected ? 'active-category' : ''}`}
               onClick={() => pickCategoryHandler(_id, categoryName)}>{categoryName}
             </span>)
         })}

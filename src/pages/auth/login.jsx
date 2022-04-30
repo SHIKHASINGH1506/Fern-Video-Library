@@ -81,7 +81,7 @@ const Login = () => {
               className="input-section"
               type="text"
               id="userName"
-              placeholder="Email"
+              placeholder="johndoe@gmail.com"
               name="email"
               value={loginCreds.email}
               onChange={(e) => setLoginFields(e)}
@@ -94,7 +94,7 @@ const Login = () => {
               className="input-section"
               type="password"
               id="pwd"
-              placeholder="Password"
+              placeholder="password"
               name="password"
               value={loginCreds.password}
               onChange={(e) => setLoginFields(e)}
@@ -104,7 +104,7 @@ const Login = () => {
           <div className="login-help">
             <div>
               <label className="input-label text-sm" htmlFor="pwd-store">
-                <input type="checkbox" name="" id="pwd-store" />
+                <input type="checkbox" className="checkbox-input" name="" id="pwd-store" />
                 Remember me
               </label>
             </div>
@@ -112,8 +112,8 @@ const Login = () => {
           </div>
           <button className="bttn bttn-primary bttn-block">LOG IN</button>
           <button className="bttn bttn-primary bttn-block my-4" onClick={(e) => testLoginFormHandler(e, testLoginCreds)}>LOG IN WITH TEST CREDENTIALS</button>
-          <p className="sub-text text-sm text-center">Don't have an account?
-            <Link className="text-sm bold link-text-primary" to='/signup'>Signup</Link>
+          <p className="sub-text text-center">Don't have an account? 
+            <Link className="primary-text" to='/signup'> Signup </Link>
           </p>
         </form>
       </div>

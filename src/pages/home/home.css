@@ -7,12 +7,16 @@
   border-bottom: 1px solid var(--border-color);
 }
 .category-badge {
+  cursor: pointer;
   padding: 0.4rem 0.9rem;
   border-radius: 15px;
   font-size: 1rem;
   background-color: var(--cateogry-pills-background-color);
   border: 1px solid var(--border-color);
   color: var(--text-color);
+}
+.active-category{
+  background-color: var(--primary-color);
 }
 .sort-wrapper {
   width: max-content;
@@ -21,7 +25,7 @@
   cursor: pointer;
 }
 .category-badge:hover {
-  background-color: var(--cateogry-pills-hover);
+  background-color: var(--primary-color);
 }
 @media only screen and (max-width: 950px) {
   .body-section-wrapper {
