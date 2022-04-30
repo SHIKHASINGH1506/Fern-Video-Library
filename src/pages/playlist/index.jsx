@@ -31,7 +31,7 @@ const Playlist = () => {
       })}
     </div>
     : <div className="message-wrapper d-flex flex-col justify-center items-center">
-        <p>You have no videos to watch later :(</p>
+        <p>You haven't created any playlist yet :(</p>
         <button class="bttn bttn-primary bttn-lg" onClick={() => navigate('/')}>Explore</button>
       </div>
     }

@@ -1,13 +1,19 @@
 .loader-wrapper {
   background-color: #181818;
   width: calc(100vw - 15rem);
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 3.5rem);
   position: fixed;
-  top: 4rem;
+  top: 3.5rem;
   left: 15rem;
   z-index: 9999;
 }
 .loader{
   width: 10rem;
   height: 10rem;
+}
+@media screen and (max-width: 950px) {
+  .loader-wrapper {
+    width: 100vw;
+    left: 0;
+  }
 }

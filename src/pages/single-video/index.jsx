@@ -4,22 +4,28 @@ import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import FileCopyOutlinedIcon from '@mui/icons-material/FileCopyOutlined';
+
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { useData } from 'context';
+import { useData, useAuth } from 'context';
+import { useToast } from 'custom-hook/useToast';
 import { addItemToLikedVideos, deleteItemFromLikedVideos } from 'service';
+import { watchLaterHandler } from 'utils/watchLaterUtil';
 
 const SingleVideo = () => {
   const {videoId}  = useParams();
   const location = useLocation();
   const navigate = useNavigate();
+  const { showToast } = useToast();
   const {
     loading,
   videoState:{
     videos, 
-    likedVideos
+    likedVideos,
+    watchlater
   }, 
   videoDispatch
   } = useData();
+  const {auth:{isAuth}} = useAuth();
 
   const video = videos?.find(video => video._id === videoId);
 
@@ -62,6 +68,10 @@ const SingleVideo = () => {
       : navigate('/login', {replace: true, state:{from : location.pathname}});
   }
 
+  const watchlaterHandler = (e) => {
+    watchLaterHandler(e, watchlater, video, videoDispatch, navigate, location, showToast, isAuth);
+  }
+
   return video ? (
     <div className="body-section-wrapper single-video-wrapper d-flex flex-col px-8 py-8">
       <iframe 
@@ -83,7 +93,9 @@ const SingleVideo = () => {
               onClick={() => likeVideoHandler()}>
               {videoLikeDislikeIcon} <span>{videoLikeDislikeText}</span>
             </button>
-            <button className="action-button d-flex items-center justify-center"><WatchLaterOutlinedIcon className="icon"/><span>Watch Later</span></button>
+            <button 
+              className="action-button d-flex items-center justify-center"
+              onClick={(e) => watchlaterHandler(e)}><WatchLaterOutlinedIcon className="icon"/><span>Watch Later</span></button>
             <button className="action-button d-flex items-center justify-center"><FileCopyOutlinedIcon className="icon"/> <span>Copy</span></button>
             <button className="action-button d-flex items-center justify-center"><PlaylistAddIcon className="icon"/> <span>Save</span></button>
           </div>
