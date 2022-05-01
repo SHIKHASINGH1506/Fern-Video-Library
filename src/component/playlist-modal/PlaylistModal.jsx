@@ -96,7 +96,7 @@ const PlaylistModal = ({closePlaylistModal, video}) => {
         {playlists.length > 0 && location.pathname!=='/playlist' &&
           <div className="playlist-list d-flex flex-col">
             {playlists.map(({title, _id}) => (
-              <label key={_id} className="text-sm" htmlFor={title}>
+              <label key={_id} className="d-flex items-center" htmlFor={title}>
                 <input 
                   className='checkbox-input'
                   type="checkbox"
@@ -105,7 +105,7 @@ const PlaylistModal = ({closePlaylistModal, video}) => {
                   checked={playlistEditor.find(item => item._id === _id)?.isChecked ? true : false}
                   onChange={(e) => videoToPlaylistHandler(_id)}
                 />
-                {title}
+                <span>{title}</span>
               </label>
             ))}
           </div>}
